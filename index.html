@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pathfinding Visualisation</title>
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style/optionList.css" />
+    <script src="script/cell.js" defer type="module"></script>
+    <script src="script/script.js" defer type="module"></script>
+  </head>
+  <body>
+    <nav class="nav-bar">
+      <a href="/"><h1>Visualise Pathfinding Algorithms</h1></a>
+      <button id="clear-board" class="btn btn-primary btn-nav">
+        Clear Board
+      </button>
+      <button id="clear-walls" class="btn btn-primary btn-nav">
+        Clear Walls & Nodes
+      </button>
+      <button id="clear-path" class="btn btn-primary btn-nav">
+        Clear Path
+      </button>
+    </nav>
+
+    <section class="container">
+      <section class="left-section">
+        <div class="menu-box">
+          <div class="unidirectionalAlgo">
+            <div class="options-list">
+              <div class="option">
+                <input
+                  type="radio"
+                  name="category"
+                  class="radio"
+                  id="dijkstra"
+                />
+                <label for="dijkstra">Dijkstra</label>
+              </div>
+
+              <div class="option">
+                <input type="radio" name="category" class="radio" id="a*" />
+                <label for="a*">A*</label>
+              </div>
+
+              <div class="option">
+                <input type="radio" name="category" class="radio" id="bfs" />
+                <label for="bfs">Breadth First Search</label>
+              </div>
+
+              <div class="option">
+                <input type="radio" name="category" class="radio" id="dfs" />
+                <label for="dfs">Depth First Search</label>
+              </div>
+
+              <div class="option">
+                <input
+                  type="radio"
+                  name="category"
+                  class="radio"
+                  id="greedyBfs"
+                />
+                <label for="greedyBfs">Greedy Best First Search</label>
+              </div>
+
+              <div class="option">
+                <input
+                  type="radio"
+                  name="category"
+                  class="radio"
+                  id="modifiedDijkstra"
+                />
+                <label for="modifiedDijkstra">Modified Dijkstra</label>
+              </div>
+            </div>
+
+            <div class="select">
+              Unidirectional Algorithms
+            </div>
+          </div>
+
+          <div class="bidirectionalAlgo">
+            <div class="options-list">
+              <div class="option">
+                <input
+                  type="radio"
+                  name="category"
+                  class="radio"
+                  id="bidirectionalDijkstra"
+                />
+                <label for="bidirectionalDijkstra"
+                  >Bidirectional Dijkstra</label
+                >
+              </div>
+
+              <div class="option">
+                <input
+                  type="radio"
+                  name="category"
+                  class="radio"
+                  id="bidirectionalA*"
+                />
+                <label for="bidirectionalA*">Bidirectional A*</label>
+              </div>
+            </div>
+
+            <div class="select">
+              Bidirectional Algorithms
+            </div>
+          </div>
+
+          <div class="mazes">
+            <div class="options-list">
+              <div class="option">
+                <input
+                  type="radio"
+                  name="category"
+                  class="radio"
+                  id="recursiveBacktracking"
+                />
+                <label for="recursiveBacktracking"
+                  >Recursive Backtracking</label
+                >
+              </div>
+
+              <div class="option">
+                <input
+                  type="radio"
+                  name="category"
+                  class="radio"
+                  id="randomizedKruskal"
+                />
+                <label for="randomizedKruskal">Randomized Kruskal</label>
+              </div>
+
+              <div class="option">
+                <input
+                  type="radio"
+                  name="category"
+                  class="radio"
+                  id="randomizedPrim"
+                />
+                <label for="randomizedPrim">Randomized Prim</label>
+              </div>
+
+              <div class="option">
+                <input type="radio" name="category" class="radio" id="wilson" />
+                <label for="wilson">Wilson</label>
+              </div>
+
+              <div class="option">
+                <input
+                  type="radio"
+                  name="category"
+                  class="radio"
+                  id="recursiveDivision"
+                />
+                <label for="recursiveDivision">Recursive Division</label>
+              </div>
+            </div>
+
+            <div class="select">
+              Mazes
+            </div>
+          </div>
+
+          <button id="visualise" class="btn btn-primary">Visualise</button>
+        </div>
+
+        <div class="info-area">
+          <div class="info-line">
+            <div class="start-node color-box"></div>
+            <h3>Start Node</h3>
+          </div>
+
+          <div class="info-line">
+            <div class="goal-node color-box"></div>
+            <h3>Goal Node</h3>
+          </div>
+
+          <div class="info-line">
+            <div class="unvisited-node color-box"></div>
+            <h3>Unvisited Node</h3>
+          </div>
+
+          <div class="info-line">
+            <div class="visited-node color-box"></div>
+            <h3>Visited Node</h3>
+          </div>
+
+          <div class="info-line">
+            <div class="way color-box"></div>
+            <h3>Path</h3>
+          </div>
+
+          <div class="info-line">
+            <div class="wall-node color-box"></div>
+            <h3>Wall</h3>
+          </div>
+        </div>
+      </section>
+
+      <section class="right-section">
+        <div class="grid-board"></div>
+      </section>
+    </section>
+  </body>
+</html>
