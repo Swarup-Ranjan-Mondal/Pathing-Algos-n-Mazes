@@ -131,7 +131,6 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
   padding-left: 10%;
-  /* background: linear-gradient(to right, #f32170, #ff6b08, #cf23cf, #eedd44); */
   background: linear-gradient(to right, rgb(7, 37, 63), rgb(42, 3, 61));
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
@@ -161,7 +160,7 @@ body {
   background: rgba(255, 0, 0, 0.9);
 }
 
-.unvisited-node {
+.marked-node {
   background: rgba(255, 255, 0, 0.75);
 }
 
@@ -189,7 +188,7 @@ body {
   border: 0.1px solid rgb(175, 216, 248);
 }
 
-.unvisited {
+.marked {
   background: rgba(255, 255, 0, 0.75);
   border: 0.1px solid rgba(0, 174, 255, 0.8);
 }
@@ -199,35 +198,11 @@ body {
   animation-duration: 1.5s;
   animation-delay: 0;
   animation-iteration-count: 1;
-  /* background: rgb(64, 206, 227);
-    border: 0.1px solid rgb(48, 142, 230); */
   background: rgba(253, 64, 39, 0.75);
   border: 0.1px solid rgba(207, 85, 69, 0.75);
 }
 
 @keyframes visitedAnimation {
-  /* 0% {
-    transform: scale(0.3);
-    background: rgba(0, 40, 114, 0.8);
-    border-radius: 100%;
-  }
-  25% {
-    transform: scale(0.5);
-    background: rgba(36, 88, 184, 0.8);
-  }
-  50% {
-    transform: scale(0.75);
-    background: rgba(20, 206, 153, 0.8);
-    background: rgb(72, 201, 147);
-  }
-  75% {
-    transform: scale(1.05);
-    background: rgba(9, 191, 219, 0.8);
-    border: 0.1px solid rgb(48, 142, 230);
-  }
-  100% {
-    transform: scale(1);
-  } */
   0% {
     transform: scale(0.3);
     background: rgba(73, 11, 35, 0.75);
@@ -257,7 +232,6 @@ body {
   animation-duration: 1s;
   animation-delay: 0;
   animation-iteration-count: 1;
-  /* background: rgb(255, 254, 106); */
   background: rgb(201, 105, 224);
   border: 0.1px solid rgb(194, 48, 230);
 }
@@ -286,7 +260,6 @@ body {
   animation-delay: 0;
   animation-delay: 0;
   animation-iteration-count: 1;
-  /* background: rgba(21, 21, 21, 0.75); */
   background: rgb(7, 37, 63);
   border: 0.1px solid transparent;
 }

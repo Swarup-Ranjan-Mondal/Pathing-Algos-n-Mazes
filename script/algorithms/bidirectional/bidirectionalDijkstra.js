@@ -13,8 +13,8 @@ export async function bidirectionalDijkstra(start, end) {
   currentFromEnd.g = 0;
   unvisitedFromStart.push(currentFromStart);
   unvisitedFromEnd.push(currentFromEnd);
-  currentFromStart.cellElement.classList.add("unvisited");
-  currentFromEnd.cellElement.classList.add("unvisited");
+  currentFromStart.cellElement.classList.add("marked");
+  currentFromEnd.cellElement.classList.add("marked");
   await sleep(0);
 
   while (unvisitedFromStart.length > 0 && unvisitedFromEnd.length > 0) {
@@ -22,8 +22,8 @@ export async function bidirectionalDijkstra(start, end) {
     currentFromEnd = unvisitedFromEnd[0];
     unvisitedFromStart.splice(0, 1);
     unvisitedFromEnd.splice(0, 1);
-    currentFromStart.cellElement.classList.remove("unvisited");
-    currentFromEnd.cellElement.classList.remove("unvisited");
+    currentFromStart.cellElement.classList.remove("marked");
+    currentFromEnd.cellElement.classList.remove("marked");
     currentFromStart.cellElement.classList.add("visited");
     currentFromEnd.cellElement.classList.add("visited");
     await sleep(0);
@@ -42,7 +42,7 @@ export async function bidirectionalDijkstra(start, end) {
         neighbour = neighbours1[i];
 
         if (!neighbour.visited && !neighbour.wall) {
-          neighbour.cellElement.classList.add("unvisited");
+          neighbour.cellElement.classList.add("marked");
 
           var dist = currentFromStart.g + 1;
 
@@ -75,7 +75,7 @@ export async function bidirectionalDijkstra(start, end) {
         neighbour = neighbours2[j];
 
         if (!neighbour.visited && !neighbour.wall) {
-          neighbour.cellElement.classList.add("unvisited");
+          neighbour.cellElement.classList.add("marked");
 
           var dist = currentFromEnd.g + 1;
 

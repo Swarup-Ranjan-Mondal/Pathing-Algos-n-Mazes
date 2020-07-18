@@ -5,13 +5,13 @@ export async function BFS(start, end) {
   var unvisitedQueue = [];
   var current = start;
   unvisitedQueue.push(current);
-  current.cellElement.classList.add("unvisited");
+  current.cellElement.classList.add("marked");
   await sleep(0);
 
   while (unvisitedQueue.length > 0) {
     current = unvisitedQueue[0];
     unvisitedQueue.splice(0, 1);
-    current.cellElement.classList.remove("unvisited");
+    current.cellElement.classList.remove("marked");
     current.cellElement.classList.add("visited");
     await sleep(0);
 
@@ -32,7 +32,7 @@ export async function BFS(start, end) {
       if (!unvisitedQueue.includes(neighbour)) {
         neighbour.parent = current;
         unvisitedQueue.push(neighbour);
-        neighbour.cellElement.classList.add("unvisited");
+        neighbour.cellElement.classList.add("marked");
       }
     }
 

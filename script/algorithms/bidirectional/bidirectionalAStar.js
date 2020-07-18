@@ -17,15 +17,15 @@ export async function bidirectionalAStar(start, end) {
   currentFromEnd.f = currentFromEnd.g + currentFromEnd.h;
   unvisitedFromStart.insert(currentFromStart, currentFromStart.f);
   unvisitedFromEnd.insert(currentFromEnd, currentFromEnd.f);
-  currentFromStart.cellElement.classList.add("unvisited");
-  currentFromEnd.cellElement.classList.add("unvisited");
+  currentFromStart.cellElement.classList.add("marked");
+  currentFromEnd.cellElement.classList.add("marked");
   await sleep(0);
 
   while (!unvisitedFromStart.isEmpty() && !unvisitedFromEnd.isEmpty()) {
     currentFromStart = unvisitedFromStart.delete();
     currentFromEnd = unvisitedFromEnd.delete();
-    currentFromStart.cellElement.classList.remove("unvisited");
-    currentFromEnd.cellElement.classList.remove("unvisited");
+    currentFromStart.cellElement.classList.remove("marked");
+    currentFromEnd.cellElement.classList.remove("marked");
     currentFromStart.cellElement.classList.add("visited");
     currentFromEnd.cellElement.classList.add("visited");
     await sleep(0);
@@ -52,7 +52,7 @@ export async function bidirectionalAStar(start, end) {
         neighbour = neighbours1[i];
 
         if (!neighbour.visited && !neighbour.wall) {
-          neighbour.cellElement.classList.add("unvisited");
+          neighbour.cellElement.classList.add("marked");
 
           var dist = currentFromStart.g + 1;
 
@@ -89,7 +89,7 @@ export async function bidirectionalAStar(start, end) {
         neighbour = neighbours2[j];
 
         if (!neighbour.visited && !neighbour.wall) {
-          neighbour.cellElement.classList.add("unvisited");
+          neighbour.cellElement.classList.add("marked");
 
           var dist = currentFromEnd.g + 1;
 

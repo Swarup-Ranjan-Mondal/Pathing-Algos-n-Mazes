@@ -6,13 +6,13 @@ export async function dijkstraPathfinding(start, end) {
   var current = start;
   current.g = 0;
   unvisited.push(current);
-  current.cellElement.classList.add("unvisited");
+  current.cellElement.classList.add("marked");
   await sleep(0);
 
   while (unvisited.length > 0) {
     current = unvisited[0];
     unvisited.splice(0, 1);
-    current.cellElement.classList.remove("unvisited");
+    current.cellElement.classList.remove("marked");
     current.cellElement.classList.add("visited");
     await sleep(0);
 
@@ -30,7 +30,7 @@ export async function dijkstraPathfinding(start, end) {
         continue;
       }
 
-      neighbour.cellElement.classList.add("unvisited");
+      neighbour.cellElement.classList.add("marked");
       var dist = current.g + 1;
       if (!unvisited.includes(neighbour)) {
         neighbour.g = dist;

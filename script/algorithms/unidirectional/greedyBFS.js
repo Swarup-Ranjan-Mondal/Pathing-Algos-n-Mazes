@@ -5,12 +5,12 @@ export async function greedyBFS(start, end) {
   var unvisitedHeap = new Heap();
   var current = start;
   unvisitedHeap.insert(current, 0);
-  current.cellElement.classList.add("unvisited");
+  current.cellElement.classList.add("marked");
   await sleep(0);
 
   while (!unvisitedHeap.isEmpty()) {
     current = unvisitedHeap.delete();
-    current.cellElement.classList.remove("unvisited");
+    current.cellElement.classList.remove("marked");
     current.cellElement.classList.add("visited");
 
     if (current == end) {
@@ -31,7 +31,7 @@ export async function greedyBFS(start, end) {
         neighbour.h = heuristic(neighbour, end);
         neighbour.parent = current;
         unvisitedHeap.insert(neighbour, neighbour.h);
-        neighbour.cellElement.classList.add("unvisited");
+        neighbour.cellElement.classList.add("marked");
       }
       await sleep(0);
     }

@@ -13,8 +13,8 @@ export async function bidirectionalDijkstraAlgo(start, end) {
   currentFromEnd.g = 0;
   unvisitedFromStart.push(currentFromStart);
   unvisitedFromEnd.push(currentFromEnd);
-  currentFromStart.cellElement.classList.add("unvisited");
-  currentFromEnd.cellElement.classList.add("unvisited");
+  currentFromStart.cellElement.classList.add("marked");
+  currentFromEnd.cellElement.classList.add("marked");
   await sleep(10);
 
   while (unvisitedFromStart.length > 0 && unvisitedFromEnd.length > 0) {
@@ -22,8 +22,8 @@ export async function bidirectionalDijkstraAlgo(start, end) {
     currentFromEnd = unvisitedFromEnd[0];
     unvisitedFromStart.splice(0, 1);
     unvisitedFromEnd.splice(0, 1);
-    currentFromStart.cellElement.classList.remove("unvisited");
-    currentFromEnd.cellElement.classList.remove("unvisited");
+    currentFromStart.cellElement.classList.remove("marked");
+    currentFromEnd.cellElement.classList.remove("marked");
     currentFromStart.cellElement.classList.add("visited");
     currentFromEnd.cellElement.classList.add("visited");
     await sleep(0);
@@ -44,7 +44,7 @@ export async function bidirectionalDijkstraAlgo(start, end) {
         bidirectionalPathTracing(neighbour, currentFromStart, start, end);
         return;
       } else if (unvisitedFromEnd.includes(neighbour)) {
-        neighbour.cellElement.classList.remove("unvisited");
+        neighbour.cellElement.classList.remove("marked");
         neighbour.cellElement.classList.add("visited");
         console.log("Search Successful!!");
         bidirectionalPathTracing(neighbour, currentFromStart, start, end);
@@ -62,7 +62,7 @@ export async function bidirectionalDijkstraAlgo(start, end) {
         neighbour.parent = currentFromStart;
       }
 
-      neighbour.cellElement.classList.add("unvisited");
+      neighbour.cellElement.classList.add("marked");
     }
 
     for (var i = 0; i < neighboursFromEnd.length; i++) {
@@ -78,7 +78,7 @@ export async function bidirectionalDijkstraAlgo(start, end) {
         bidirectionalPathTracing(neighbour, currentFromEnd, end, end);
         return;
       } else if (unvisitedFromStart.includes(neighbour)) {
-        neighbour.cellElement.classList.remove("unvisited");
+        neighbour.cellElement.classList.remove("marked");
         neighbour.cellElement.classList.add("visited");
         console.log("Search Successful!!");
         bidirectionalPathTracing(neighbour, currentFromEnd, end, end);
@@ -96,7 +96,7 @@ export async function bidirectionalDijkstraAlgo(start, end) {
         neighbour.parent = currentFromEnd;
       }
 
-      neighbour.cellElement.classList.add("unvisited");
+      neighbour.cellElement.classList.add("marked");
     }
 
     visitedFromStart.push(currentFromStart);

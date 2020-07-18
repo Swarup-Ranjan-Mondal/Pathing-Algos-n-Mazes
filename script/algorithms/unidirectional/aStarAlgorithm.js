@@ -6,7 +6,7 @@ export async function aStarPathfinding(start, end) {
   var current = start;
   current.g = 0;
   openSet.push(current);
-  current.cellElement.classList.add("unvisited");
+  current.cellElement.classList.add("marked");
   await sleep(0);
 
   while (openSet.length > 0) {
@@ -19,7 +19,7 @@ export async function aStarPathfinding(start, end) {
 
     current = openSet[winner];
     openSet.splice(winner, 1);
-    current.cellElement.classList.remove("unvisited");
+    current.cellElement.classList.remove("marked");
     current.cellElement.classList.add("visited");
     await sleep(0);
 
@@ -37,7 +37,7 @@ export async function aStarPathfinding(start, end) {
         continue;
       }
 
-      neighbour.cellElement.classList.add("unvisited");
+      neighbour.cellElement.classList.add("marked");
       var dist = current.g + 1;
       if (!openSet.includes(neighbour)) {
         neighbour.g = dist;
