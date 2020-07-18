@@ -21,11 +21,10 @@ export const rows = parseInt(
 export const cols = parseInt(
   getComputedStyle(document.documentElement).getPropertyValue("--cols")
 );
-export let mouseDown = false;
-export let grid, start, end;
+export let mouseDown, isWall;
+export let grid, start, end, current;
 
-let gridBoard = document.querySelector(".grid-board"),
-  current;
+let gridBoard = document.querySelector(".grid-board");
 
 function generateGridBoard() {
   var grid = [];
@@ -51,6 +50,7 @@ function createNewGrid() {
   start.cellElement.classList.add("starting-cell");
   end.cellElement.classList.add("ending-cell");
   moveStartAndEndWithMouse();
+  wallsOnMouseMove(grid);
 }
 
 function clearObstaclesAndPaths() {
@@ -65,6 +65,7 @@ function clearObstaclesAndPaths() {
   start.cellElement.classList.add("starting-cell");
   end.cellElement.classList.add("ending-cell");
   moveStartAndEndWithMouse();
+  wallsOnMouseMove(grid);
 }
 
 function clearPathAndNodes() {
@@ -95,6 +96,7 @@ function clearPathAndNodes() {
     wall.cellElement.classList.add("wall");
   }
   moveStartAndEndWithMouse();
+  wallsOnMouseMove(grid);
 }
 
 function moveStartAndEndWithMouse() {
@@ -102,7 +104,7 @@ function moveStartAndEndWithMouse() {
     for (let x = 0; x < cols; x++) {
       const cell = grid[y][x];
 
-      cell.cellElement.onmouseover = () => {
+      cell.cellElement.onmousedown = () => {
         if (cell === start) {
           current = "start";
         } else if (cell === end) {
@@ -114,14 +116,14 @@ function moveStartAndEndWithMouse() {
         if (mouseDown) {
           if (current == "start") {
             start.cellElement.classList.remove("starting-cell");
+            isWall = cell.wall;
             start = cell;
             start.cellElement.classList.add("starting-cell");
             start.wall = false;
             start.cellElement.classList.remove("wall");
-          }
-
-          if (current == "end") {
+          } else if (current == "end") {
             end.cellElement.classList.remove("ending-cell");
+            isWall = cell.wall;
             end = cell;
             end.cellElement.classList.add("ending-cell");
             end.wall = false;
@@ -185,16 +187,15 @@ async function callAlgoAndMazeFunctions(type, functionName) {
 }
 
 /* Main Program Starts Here */
-document.addEventListener("mousedown", () => {
+createNewGrid();
+
+gridBoard.addEventListener("mousedown", () => {
   mouseDown = true;
 });
-document.addEventListener("mouseup", () => {
+gridBoard.addEventListener("mouseup", () => {
   mouseDown = false;
+  current = undefined;
 });
-
-createNewGrid();
-moveStartAndEndWithMouse();
-wallsOnMouseMove(grid);
 
 const optionList = document.querySelectorAll(".options-list");
 const select = document.querySelectorAll(".select");

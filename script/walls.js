@@ -1,4 +1,13 @@
-import { mouseDown, grid, cols, rows, start, end } from "./script.js";
+import {
+  mouseDown,
+  grid,
+  cols,
+  rows,
+  start,
+  end,
+  current,
+  isWall,
+} from "./script.js";
 
 export function createWalls(grid) {
   var walls = [];
@@ -188,28 +197,31 @@ export function getWallSeparatedCells(wall) {
 export function wallsOnMouseMove(grid) {
   for (let y = 0; y < grid.length; y++) {
     for (let x = 0; x < grid[y].length; x++) {
-      const cell = grid[y][x].cellElement;
+      const cell = grid[y][x];
 
-      cell.onmouseleave = () => {
-        if (mouseDown) {
-          if (!grid[y][x].wall) {
-            cell.classList.add("wall");
-            grid[y][x].wall = true;
+      cell.cellElement.onmouseleave = () => {
+        if (mouseDown && cell != start && cell != end && current == undefined) {
+          if (!cell.wall) {
+            cell.cellElement.classList.add("wall");
+            cell.wall = true;
           } else {
-            cell.classList.remove("wall");
-            grid[y][x].wall = false;
+            cell.cellElement.classList.remove("wall");
+            cell.wall = false;
           }
+        } else if (isWall) {
+          cell.wall = true;
+          cell.cellElement.classList.add("wall");
         }
       };
 
-      cell.onclick = () => {
-        if (grid[y][x] != start && grid[y][x] != end) {
-          if (!grid[y][x].wall) {
-            cell.classList.add("wall");
-            grid[y][x].wall = true;
+      cell.cellElement.onmouseup = () => {
+        if (cell != start && cell != end) {
+          if (!cell.wall) {
+            cell.cellElement.classList.add("wall");
+            cell.wall = true;
           } else {
-            cell.classList.remove("wall");
-            grid[y][x].wall = false;
+            cell.cellElement.classList.remove("wall");
+            cell.wall = false;
           }
         }
       };
