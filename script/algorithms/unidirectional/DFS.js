@@ -5,7 +5,6 @@ var endPoint;
 
 export async function DFS(start, end) {
   endPoint = end;
-  start.visited = true;
 
   if (await DFSUtil(start)) {
     console.log("Search Successful");
@@ -16,8 +15,9 @@ export async function DFS(start, end) {
 }
 
 async function DFSUtil(current) {
+  current.visited = true;
+  current.cellElement.classList.remove("marked");
   current.cellElement.classList.add("visited");
-  await sleep(0);
 
   if (current == endPoint) {
     return true;
@@ -32,15 +32,19 @@ async function DFSUtil(current) {
     }
 
     neighbour.parent = current;
-    neighbour.visited = true;
+    neighbour.cellElement.classList.add("marked");
+    await sleep(7);
+
     if (await DFSUtil(neighbour)) {
       return true;
     }
 
     neighbour.parent = undefined;
-    neighbour.visited = false;
+    neighbour.cellElement.classList.replace("visited", "marked");
+    await sleep(15);
+
+    neighbour.cellElement.classList.replace("marked", "visited");
   }
 
-  current.cellElement.classList.remove("visited");
   return false;
 }

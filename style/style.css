@@ -196,7 +196,7 @@ body {
 .visited {
   animation-name: visitedAnimation;
   animation-duration: 1.5s;
-  animation-delay: 0;
+  animation-delay: 0s;
   animation-iteration-count: 1;
   background: rgba(253, 64, 39, 0.75);
   border: 0.1px solid rgba(207, 85, 69, 0.75);
@@ -230,7 +230,7 @@ body {
 .path {
   animation-name: pathAnimation;
   animation-duration: 1s;
-  animation-delay: 0;
+  animation-delay: 0s;
   animation-iteration-count: 1;
   background: rgb(201, 105, 224);
   border: 0.1px solid rgb(194, 48, 230);
@@ -257,8 +257,7 @@ body {
 .wall {
   animation-name: wallAnimation;
   animation-duration: 0.2s;
-  animation-delay: 0;
-  animation-delay: 0;
+  animation-delay: 0s;
   animation-iteration-count: 1;
   background: rgb(7, 37, 63);
   border: 0.1px solid transparent;
