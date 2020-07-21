@@ -28,7 +28,7 @@ body {
 .nav-bar a {
   position: absolute;
   text-decoration: none;
-  left: 3%;
+  left: 1.5%;
 }
 
 .nav-bar h1 {
@@ -101,7 +101,7 @@ body {
   margin-bottom: 2px;
 }
 
-#visualise {
+#visualize {
   position: absolute;
   left: 50%;
   bottom: 10%;
@@ -114,14 +114,7 @@ body {
 .btn-inactive {
   color: white;
   background: rgb(232, 0, 0, 0.75);
-}
-
-.btn-inactive:hover {
-  color: white;
-}
-
-.btn-inactive:active {
-  box-shadow: 1px 1px 6px black;
+  pointer-events: none;
 }
 
 .info-area {
@@ -182,6 +175,10 @@ body {
   grid-template-rows: repeat(var(--rows), 1fr);
   grid-template-columns: repeat(var(--cols), 1fr);
   z-index: 3;
+}
+
+.grid-board.inactive {
+  pointer-events: none;
 }
 
 .cell {

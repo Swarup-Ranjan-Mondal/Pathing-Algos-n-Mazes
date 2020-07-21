@@ -105,9 +105,9 @@ function moveStartAndEndWithMouse() {
       const cell = grid[y][x];
 
       cell.cellElement.onmousedown = () => {
-        if (cell === start) {
+        if (cell == start) {
           current = "start";
-        } else if (cell === end) {
+        } else if (cell == end) {
           current = "end";
         }
       };
@@ -199,7 +199,7 @@ gridBoard.addEventListener("mouseup", () => {
 
 const optionList = document.querySelectorAll(".options-list");
 const select = document.querySelectorAll(".select");
-const visualiseBtn = document.querySelector("#visualise");
+const visualizeBtn = document.querySelector("#visualize");
 const clearBoardBtn = document.querySelector("#clear-board");
 const clearWallsBtn = document.querySelector("#clear-walls");
 const clearPathBtn = document.querySelector("#clear-path");
@@ -237,13 +237,24 @@ for (let i = 0; i < select.length; i++) {
   });
 }
 
-visualiseBtn.onclick = async () => {
-  if (!inactive && currentSelect != null) {
-    visualiseBtn.classList.add("btn-inactive");
+visualizeBtn.onclick = async () => {
+  if (currentSelect != null) {
     inactive = true;
+    gridBoard.classList.add("inactive");
+    visualizeBtn.classList.add("btn-inactive");
+    clearBoardBtn.classList.add("btn-inactive");
+    clearWallsBtn.classList.add("btn-inactive");
+    clearPathBtn.classList.add("btn-inactive");
+
     await callAlgoAndMazeFunctions(type, functionName);
     currentSelect.innerHTML = type;
-    visualiseBtn.classList.remove("btn-inactive");
+    currentSelect = null;
+
+    visualizeBtn.classList.remove("btn-inactive");
+    clearBoardBtn.classList.remove("btn-inactive");
+    clearWallsBtn.classList.remove("btn-inactive");
+    clearPathBtn.classList.remove("btn-inactive");
+    gridBoard.classList.remove("inactive");
     inactive = false;
   }
 };
