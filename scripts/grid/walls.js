@@ -1,14 +1,7 @@
-import {
-  mouseDown,
-  grid,
-  cols,
-  rows,
-  start,
-  end,
-  current,
-  isWall,
-} from "../main.js";
+import { mouseDown, grid, cols, rows, start, end, current } from "../main.js";
 import { sleep } from "../utils/essentials.js";
+
+export let removedWalls = new Set();
 
 export function createWalls(grid) {
   let walls = [];
@@ -206,31 +199,37 @@ export function wallsOnMouseMove(grid) {
   for (let y = 0; y < grid.length; y++) {
     for (let x = 0; x < grid[y].length; x++) {
       const cell = grid[y][x];
+      const cellElement = cell.cellElement;
 
-      cell.cellElement.onmouseleave = () => {
+      cellElement.onmouseleave = () => {
         if (mouseDown) {
           if (cell != start && cell != end && current == undefined) {
             if (!cell.wall) {
-              cell.cellElement.classList.add("wall");
+              cellElement.classList.add("wall");
               cell.wall = true;
             } else {
-              cell.cellElement.classList.remove("wall");
+              cellElement.classList.remove("wall");
               cell.wall = false;
             }
-          } else if (isWall) {
+          } else if (
+            removedWalls.has(cell) &&
+            !(current == "start" && cellElement.classList.contains("goal")) &&
+            !(current == "end" && cellElement.classList.contains("start"))
+          ) {
             cell.wall = true;
-            cell.cellElement.classList.add("wall");
+            cellElement.classList.add("wall");
+            removedWalls.delete(cell);
           }
         }
       };
 
-      cell.cellElement.onmouseup = () => {
+      cellElement.onmouseup = () => {
         if (cell != start && cell != end) {
           if (!cell.wall) {
-            cell.cellElement.classList.add("wall");
+            cellElement.classList.add("wall");
             cell.wall = true;
           } else {
-            cell.cellElement.classList.remove("wall");
+            cellElement.classList.remove("wall");
             cell.wall = false;
           }
         }

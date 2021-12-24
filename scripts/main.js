@@ -1,5 +1,5 @@
 import { initialiseCellsAndNeighbours } from "./grid/cell.js";
-import { wallsOnMouseMove, createWalls } from "./grid/walls.js";
+import { wallsOnMouseMove, createWalls, removedWalls } from "./grid/walls.js";
 import { BFS } from "./algorithms/unidirectional/BFS.js";
 import { DFS } from "./algorithms/unidirectional/DFS.js";
 import { aStarPathfinding } from "./algorithms/unidirectional/aStarAlgorithm.js";
@@ -13,7 +13,6 @@ import { kruskalsMaze } from "./mazes/KruskalsMaze.js";
 import { DFSmazeGenerator } from "./mazes/MazeDFS.js";
 import { wilsonsMaze } from "./mazes/WilsonsMaze.js";
 import { primsMaze } from "./mazes/PrimsMaze.js";
-import { bidirectionalDijkstraAlgo } from "./test.js";
 
 export const rows = parseInt(
   getComputedStyle(document.documentElement).getPropertyValue("--rows")
@@ -21,7 +20,7 @@ export const rows = parseInt(
 export const cols = parseInt(
   getComputedStyle(document.documentElement).getPropertyValue("--cols")
 );
-export let mouseDown, isWall, liveUpdate;
+export let mouseDown, liveUpdate;
 export let grid, start, end, current;
 
 let gridElement = document.querySelector(".grid");
@@ -104,21 +103,25 @@ function moveStartAndEndWithMouse() {
       };
 
       cell.cellElement.onmouseenter = () => {
-        if (mouseDown) {
+        if (mouseDown && cell != start && cell != end) {
           if (current == "start") {
             start.cellElement.classList.remove("start");
-            isWall = cell.wall;
+            cell.cellElement.classList.add("start");
+            cell.cellElement.classList.remove("wall");
+            if (cell.wall) {
+              removedWalls.add(cell);
+            }
+            cell.wall = false;
             start = cell;
-            start.cellElement.classList.add("start");
-            start.cellElement.classList.remove("wall");
-            start.wall = false;
           } else if (current == "end") {
             end.cellElement.classList.remove("goal");
-            isWall = cell.wall;
+            cell.cellElement.classList.add("goal");
+            cell.cellElement.classList.remove("wall");
+            if (cell.wall) {
+              removedWalls.add(cell);
+            }
+            cell.wall = false;
             end = cell;
-            end.cellElement.classList.add("goal");
-            end.cellElement.classList.remove("wall");
-            end.wall = false;
           }
 
           if (
