@@ -1,0 +1,17 @@
+.container {
+  height: 93%;
+  display: flex;
+}
+
+.left-section {
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+}
+
+.right-section {
+  width: 85%;
+  border-left: 1px solid rgb(10, 101, 170);
+  border-top: 2px solid rgb(57, 161, 241);
+  z-index: 1;
+}

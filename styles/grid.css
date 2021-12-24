@@ -1,0 +1,161 @@
+.grid {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: repeat(var(--rows), 1fr);
+  grid-template-columns: repeat(var(--cols), 1fr);
+  z-index: 3;
+}
+
+.cell {
+  border: 1px solid #afd8f8;
+}
+
+.start {
+  background-image: url("../images/start.svg");
+}
+
+.goal {
+  background-image: url("../images/goal.svg");
+}
+
+.start,
+.goal {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation-name: shrink-grow-bg-animation;
+  animation-iteration-count: 1;
+  animation-duration: 0.5s;
+  animation-delay: 40ms;
+}
+
+@keyframes shrink-grow-bg-animation {
+  0% {
+    background-size: 70%;
+  }
+  40% {
+    background-size: 55%;
+  }
+  90% {
+    background-size: 120%;
+  }
+}
+
+.marked {
+  background-color: #ffff00bf;
+  border: 1px solid #00aeffcc;
+}
+
+.visited {
+  animation-name: visited-animation;
+  animation-duration: 1.5s;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  background-color: #fd4027bf;
+  border: 1px solid #cf5545bf;
+}
+
+@keyframes visited-animation {
+  0% {
+    transform: scale(0.3);
+    background-color: #490b23bf;
+    border-radius: 100%;
+  }
+  25% {
+    background-color: #833ab4bf;
+    border: 1px solid #6a19a0bf;
+  }
+  50% {
+    background-color: #c02b69bf;
+  }
+  75% {
+    transform: scale(1.02);
+    background-color: #d64851bf;
+    border: 1px solid #971d5cbf;
+  }
+}
+
+.path {
+  animation-name: path-animation;
+  animation-duration: 0.75s;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  background-color: #369bda;
+  border: 1px solid #1270ab;
+}
+
+@keyframes path-animation {
+  0% {
+    background-color: #369bda;
+    transform: scale(0.75);
+  }
+  36% {
+    transform: scale(0.9);
+  }
+  72% {
+    transform: scale(1.02);
+  }
+}
+
+.wall {
+  animation-name: wall-animation;
+  animation-duration: 0.2s;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  background-color: #07253f;
+  border: 1px solid transparent;
+}
+
+@keyframes wall-animation {
+  0% {
+    background-color: #321f52;
+    transform: scale(0.45);
+  }
+  50% {
+    background-color: #2f0f63;
+    transform: scale(0.85);
+  }
+  75% {
+    background-color: #072525;
+    transform: scale(1.2);
+  }
+}
+
+.path-traced {
+  background-color: #369bda;
+  border: 1px solid #369bda;
+  position: relative;
+}
+
+.line {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  width: 3px;
+  height: 105%;
+  border-radius: 25%;
+  transform-origin: bottom;
+  background-color: #ffff00;
+  z-index: 10;
+}
+
+.line.top {
+  transform: translateX(-50%);
+}
+
+.line.right {
+  transform: translateX(-50%) rotate(90deg);
+}
+
+.line.bottom {
+  transform: translateX(-50%) rotate(180deg);
+}
+
+.line.left {
+  transform: translateX(-50%) rotate(270deg);
+}
+
+.cell.no-animation {
+  animation: none;
+}

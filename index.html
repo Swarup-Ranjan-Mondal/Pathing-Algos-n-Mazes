@@ -3,31 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/svg+xml" href="images/logo.svg" />
     <title>Pathing Algos n Mazes</title>
-    <link rel="stylesheet" href="style/style.css" />
-    <link rel="stylesheet" href="style/optionList.css" />
-    <script src="script/cell.js" defer type="module"></script>
-    <script src="script/script.js" defer type="module"></script>
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="styles/navbar.css" />
+    <link rel="stylesheet" href="styles/option-list.css" />
+    <link rel="stylesheet" href="styles/container.css" />
+    <link rel="stylesheet" href="styles/menu-area.css" />
+    <link rel="stylesheet" href="styles/info-area.css" />
+    <link rel="stylesheet" href="styles/grid.css" />
+    <script src="scripts/main.js" defer type="module"></script>
   </head>
   <body>
-    <nav class="nav-bar">
+    <nav class="navbar">
       <a href="/"><h1>Pathing Algos n Mazes</h1></a>
-      <button id="clear-board" class="btn btn-primary btn-nav">
-        Clear Board
-      </button>
-      <button id="clear-walls" class="btn btn-primary btn-nav">
-        Clear Walls & Nodes
-      </button>
-      <button id="clear-path" class="btn btn-primary btn-nav">
-        Clear Path
-      </button>
+      <button id="clear-board" class="btn primary">Clear Board</button>
+      <button id="clear-walls" class="btn primary">Clear Walls & Nodes</button>
+      <button id="clear-path" class="btn primary">Clear Path</button>
     </nav>
 
     <section class="container">
       <section class="left-section">
-        <div class="menu-box">
+        <div class="menu-area">
           <div class="unidirectionalAlgo">
-            <div class="options-list">
+            <div class="option-list">
               <div class="option">
                 <input
                   type="radio"
@@ -78,7 +77,7 @@
           </div>
 
           <div class="bidirectionalAlgo">
-            <div class="options-list">
+            <div class="option-list">
               <div class="option">
                 <input
                   type="radio"
@@ -106,7 +105,7 @@
           </div>
 
           <div class="mazes">
-            <div class="options-list">
+            <div class="option-list">
               <div class="option">
                 <input
                   type="radio"
@@ -158,49 +157,49 @@
             <div class="select">Mazes</div>
           </div>
 
-          <button id="visualize" class="btn btn-primary">Visualize</button>
+          <button id="visualize" class="btn success">Visualize</button>
         </div>
 
         <div class="info-area">
           <div class="info-line">
-            <div class="start-node color-box"></div>
+            <div class="box start"></div>
             <h3>Start Node</h3>
           </div>
 
           <div class="info-line">
-            <div class="goal-node color-box"></div>
+            <div class="box goal"></div>
             <h3>Goal Node</h3>
           </div>
 
           <div class="info-line">
-            <div class="color-box"></div>
+            <div class="box unvisited"></div>
             <h3>Unvisited Node</h3>
           </div>
 
           <div class="info-line">
-            <div class="marked-node color-box"></div>
+            <div class="box marked"></div>
             <h3>Marked Node</h3>
           </div>
 
           <div class="info-line">
-            <div class="visited-node color-box"></div>
+            <div class="box visited"></div>
             <h3>Visited Node</h3>
           </div>
 
           <div class="info-line">
-            <div class="way color-box"></div>
+            <div class="box path"></div>
             <h3>Path</h3>
           </div>
 
           <div class="info-line">
-            <div class="wall-node color-box"></div>
+            <div class="box wall"></div>
             <h3>Wall</h3>
           </div>
         </div>
       </section>
 
       <section class="right-section">
-        <div class="grid-board"></div>
+        <div class="grid"></div>
       </section>
     </section>
   </body>

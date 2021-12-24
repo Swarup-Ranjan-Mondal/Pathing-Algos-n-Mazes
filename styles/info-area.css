@@ -1,0 +1,32 @@
+.info-area {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-left: 10%;
+  background: linear-gradient(to right, #07253f, #2a033d);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  border-top: 1.5px solid #0a65aa;
+}
+
+.info-line {
+  display: flex;
+}
+
+.box {
+  width: 1.4em;
+  height: 1.4em;
+}
+
+.unvisited {
+  background-color: #ffffffbf;
+  border: 1px solid #72abd6;
+}
+
+.info-line h3 {
+  font-size: 17px;
+  margin-left: 10%;
+}
