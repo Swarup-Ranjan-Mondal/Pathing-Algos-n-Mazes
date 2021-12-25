@@ -1,0 +1,14 @@
+{
+  "name": "pathing-algos-n-mazes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "Swarup Ranjan Mondal",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
