@@ -1,15 +1,9 @@
 .menu-area {
   width: 100%;
-  height: 50%;
+  height: 47%;
   display: flex;
   flex-direction: column;
   position: relative;
-  /* background-image: linear-gradient(
-    165deg,
-    rgba(18, 194, 233, 0.75),
-    rgba(196, 113, 237, 0.75),
-    rgba(246, 79, 89, 0.75)
-  ); */
   background-color: #222a36b3;
 }
 
@@ -28,7 +22,7 @@
 
 .bidirectionalAlgo {
   position: absolute;
-  top: 30%;
+  top: 32%;
   left: 2.955%;
   width: 194%;
   display: flex;
@@ -41,7 +35,7 @@
 
 .mazes {
   position: absolute;
-  top: 50%;
+  top: 54%;
   left: 2.955%;
   width: 194%;
   display: flex;
@@ -55,7 +49,7 @@
 #visualize {
   position: absolute;
   left: 50%;
-  bottom: 10%;
+  bottom: 9%;
   font-size: 1em;
   margin: 0;
   padding: 1.5vmin 3vmin;

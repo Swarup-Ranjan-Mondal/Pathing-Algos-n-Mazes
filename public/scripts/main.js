@@ -206,11 +206,13 @@ let type,
   currentSelect = null;
 
 const selects = document.querySelectorAll(".select");
+const showGuide = document.querySelector("#show-guide");
 const visualizeBtn = document.querySelector("#visualize");
 const clearPathBtn = document.querySelector("#clear-path");
 const clearBoardBtn = document.querySelector("#clear-board");
 const clearWallsBtn = document.querySelector("#clear-walls");
 const optionLists = document.querySelectorAll(".option-list");
+const tutorialGuide = document.querySelector(".tutorial .guide");
 
 createNewGrid();
 
@@ -220,6 +222,17 @@ gridElement.onmousedown = () => {
 gridElement.onmouseup = () => {
   mouseDown = false;
   current = undefined;
+};
+
+showGuide.onclick = () => {
+  tutorialGuide.classList.toggle("active");
+
+  window.onmousedown = (e) => {
+    if (!e.target.classList.contains("guide") && e.target != showGuide) {
+      tutorialGuide.classList.remove("active");
+      window.onmousedown = undefined;
+    }
+  };
 };
 
 selects.forEach((select) => {

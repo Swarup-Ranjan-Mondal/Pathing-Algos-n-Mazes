@@ -7,6 +7,7 @@
     <title>Pathing Algos n Mazes</title>
     <link rel="stylesheet" href="styles/index.css" />
     <link rel="stylesheet" href="styles/navbar.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
     <link rel="stylesheet" href="styles/option-list.css" />
     <link rel="stylesheet" href="styles/container.css" />
     <link rel="stylesheet" href="styles/menu-area.css" />
@@ -16,7 +17,42 @@
   </head>
   <body>
     <nav class="navbar">
-      <a href="/"><h1>Pathing Algos n Mazes</h1></a>
+      <a href=""><h1>Pathing Algos n Mazes</h1></a>
+
+      <div class="tutorial">
+        <div id="show-guide"></div>
+
+        <div class="guide">
+          <h3 class="guide-title">Tutorial Guide</h3>
+
+          <ul class="guide-content">
+            <li class="para">
+              <h5>*</h5>
+              <h5>
+                Move the Start Node or Goal Node, by pressing the mouse button
+                on it and then dragging it to wherever you want.
+              </h5>
+            </li>
+
+            <li class="para">
+              <h5>*</h5>
+              <h5>
+                Drag over the Nodes while keeping the mouse button pressed to
+                draw Walls.
+              </h5>
+            </li>
+
+            <li class="para">
+              <h5>*</h5>
+              <h5>
+                Select a Pathing or Maze Algorithm from the option lists and
+                click on Visualize button to see the algorithm in action.
+              </h5>
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <button id="clear-board" class="btn primary">Clear Board</button>
       <button id="clear-walls" class="btn primary">Clear Walls & Nodes</button>
       <button id="clear-path" class="btn primary">Clear Path</button>
@@ -202,5 +238,16 @@
         <div class="grid"></div>
       </section>
     </section>
+
+    <footer>
+      <p class="author">Made by Swarup Ranjan Mondal</p>
+      <a href="https://github.com/swarup-ranjan-mondal/Pathing-Algos-n-Mazes/">
+        <img
+          class="github-logo"
+          src="images/github-logo.svg"
+          alt="Github Logo"
+        />
+      </a>
+    </footer>
   </body>
 </html>
