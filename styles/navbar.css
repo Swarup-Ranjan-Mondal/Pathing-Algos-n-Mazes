@@ -1,0 +1,96 @@
+.navbar {
+  height: 7%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: #2f3640f2;
+  border-bottom: 1px solid #2f3640;
+  position: relative;
+}
+
+.navbar a {
+  position: absolute;
+  text-decoration: none;
+  left: 1.25%;
+}
+
+.navbar h1 {
+  font-size: 1.4rem;
+  color: #ffffffd9;
+  text-shadow: 1px 1px 6px #000;
+}
+
+.navbar h1:hover {
+  color: #369bda;
+}
+
+.navbar h1:active {
+  color: #369bda;
+  text-shadow: -1px -1px 3px #000;
+}
+
+.tutorial {
+  position: relative;
+  margin: 0 0.7em;
+  z-index: 9;
+}
+
+.tutorial #show-guide {
+  width: 45px;
+  height: 44px;
+  border-radius: 50%;
+  background-image: url("/Pathing-Algos-n-Mazes/images/help.svg");
+  background-repeat: no-repeat;
+  background-size: 120%;
+  background-position: center;
+  box-shadow: 0 0 3px #000;
+  cursor: pointer;
+}
+
+.tutorial .guide {
+  position: absolute;
+  top: 124%;
+  left: 50%;
+  height: 0;
+  width: 360px;
+  border-radius: 8px;
+  color: #f5f6fa;
+  background-color: #2f3640;
+  transform: translateX(-50%);
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+}
+
+.tutorial .guide.active {
+  opacity: 1;
+  height: max-content;
+}
+
+.guide-title {
+  font-size: 18px;
+  margin: 10px 20px 6px 20px;
+  pointer-events: none;
+}
+
+.guide-content {
+  margin: 0 20px 8px 20px;
+  pointer-events: none;
+}
+
+.guide-content .para {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+}
+
+.para h5 {
+  margin: 5px 0;
+}
+
+.navbar #show-guide:active {
+  box-shadow: inset 1px 1px 8px #000;
+}
+
+.navbar .btn:last-child {
+  margin-right: 1.5%;
+}

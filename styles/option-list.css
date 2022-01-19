@@ -1,0 +1,76 @@
+.option-list {
+  order: 1;
+  width: 48.5%;
+  max-height: 0;
+  color: #f5f6fa;
+  background-color: #2f3640;
+  transition: all 0.2s ease-in-out;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: -10;
+  opacity: 0;
+}
+
+.option {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.option:hover {
+  background-color: #29719e;
+}
+
+label {
+  cursor: pointer;
+  pointer-events: none;
+}
+
+.radio {
+  display: none;
+}
+
+.select {
+  order: 0;
+  width: 48.5%;
+  color: #f5f6fa;
+  height: max-content;
+  margin-right: 3%;
+  padding: 14px 24px;
+  background-color: #2f3640;
+  border-radius: 8px;
+  position: relative;
+  cursor: pointer;
+  opacity: 0.95;
+}
+
+.select:hover {
+  color: #369bda;
+  background-color: #292f38;
+}
+
+.select::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  width: 20px;
+  height: 20px;
+  transform: translateY(-50%);
+  background-image: url("/Pathing-Algos-n-Mazes/images/arrow-right.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  filter: invert(100%);
+  -webkit-filter: invert(100%);
+  transition: all 0.4s ease-in-out;
+  pointer-events: none;
+}
+
+.option-list.active {
+  max-height: 240px;
+  opacity: 0.98;
+}
+
+.option-list.active + .select::after {
+  transform: translateY(-50%) rotate(180deg);
+  right: 7px;
+}

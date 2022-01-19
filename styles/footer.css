@@ -1,0 +1,22 @@
+footer {
+  height: 6%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #2f3640f2;
+  border-top: 1px solid #2f3640;
+}
+
+.author {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-right: 15px;
+}
+
+.github-logo {
+  width: 1.1rem;
+  height: 1.1rem;
+  filter: invert(100%);
+  cursor: pointer;
+}

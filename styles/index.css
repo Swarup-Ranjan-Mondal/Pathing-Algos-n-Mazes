@@ -1,0 +1,59 @@
+:root {
+  --rows: 25;
+  --cols: 51;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  font-family: "Roboto", sans-serif;
+}
+
+.inactive {
+  pointer-events: none;
+}
+
+.btn {
+  outline: none;
+  font-size: 0.9em;
+  padding: 0.7em 0.9em;
+  margin: 0 0.7em;
+  border-radius: 0.8vmin;
+  font-weight: 700;
+  color: #e2dbeb;
+  border: 2px solid #000;
+  box-shadow: 0 0 4px #000;
+  cursor: pointer;
+}
+
+.btn:hover {
+  color: #114d72;
+}
+
+.btn:active {
+  color: #e2dbeb;
+  box-shadow: inset 1px 1px 8px #000;
+}
+
+.btn.primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn.success {
+  background-color: #0bc20b;
+  border-color: #0bc20b;
+}
+
+.btn.inactive {
+  background-color: #e80000bf;
+  border-color: #e80000bf;
+}

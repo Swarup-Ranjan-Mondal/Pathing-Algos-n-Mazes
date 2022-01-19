@@ -1,0 +1,57 @@
+.menu-area {
+  width: 100%;
+  height: 47%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: #222a36b3;
+}
+
+.unidirectionalAlgo {
+  position: absolute;
+  top: 10%;
+  left: 2.955%;
+  width: 194%;
+  display: flex;
+  font-size: 0.8rem;
+}
+
+.unidirectionalAlgo .active {
+  z-index: 9;
+}
+
+.bidirectionalAlgo {
+  position: absolute;
+  top: 32%;
+  left: 2.955%;
+  width: 194%;
+  display: flex;
+  font-size: 0.8rem;
+}
+
+.bidirectionalAlgo .active {
+  z-index: 7;
+}
+
+.mazes {
+  position: absolute;
+  top: 54%;
+  left: 2.955%;
+  width: 194%;
+  display: flex;
+  font-size: 0.8rem;
+}
+
+.mazes .active {
+  z-index: 5;
+}
+
+#visualize {
+  position: absolute;
+  left: 50%;
+  bottom: 9%;
+  font-size: 1em;
+  margin: 0;
+  padding: 1.5vmin 3vmin;
+  transform: translateX(-50%);
+}
