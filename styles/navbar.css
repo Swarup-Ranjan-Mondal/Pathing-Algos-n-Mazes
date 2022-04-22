@@ -87,6 +87,11 @@
   margin: 5px 0;
 }
 
+.guide.active .para b {
+  font-weight: 800;
+  color: #15bec7;
+}
+
 .navbar #show-guide:active {
   box-shadow: inset 1px 1px 8px #000;
 }
